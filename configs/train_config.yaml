@@ -1,0 +1,40 @@
+# Training configuration
+training:
+  episodes: 1000
+  max_steps: 1000
+  batch_size: 64
+  eval_freq: 50
+  eval_episodes: 5
+
+# Agent configurations
+agent:
+  ddpg:
+    lr_actor: 1e-3
+    lr_critic: 1e-3
+    gamma: 0.99
+    tau: 0.005
+  
+  ppo:
+    lr: 3e-4
+    gamma: 0.99
+    eps_clip: 0.2
+    k_epochs: 4
+  
+  sac:
+    lr: 3e-4
+    gamma: 0.99
+    tau: 0.005
+    alpha: 0.2
+
+# Environment configuration
+env:
+  name: "MountainCarContinuous-v0"
+  render_mode: null
+  max_episode_steps: 1000
+
+# Logging configuration
+logging:
+  log_dir: "logs"
+  tensorboard: true
+  wandb: false
+  wandb_project: "rl-continuous-control"
